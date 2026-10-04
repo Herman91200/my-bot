@@ -10,10 +10,10 @@ BOT_TOKEN = os.getenv("BOT_TOKEN", "ВСТАВЬ_СЮДА_ТОКЕН")
 CHANNEL_ID = int(os.getenv("CHANNEL_ID", "-1001234567890"))
 
 # Путь к файлу базы данных
-DB_PATH = "posts.db"
+DB_PATH = "/data/posts.db"
 
 # Путь к лог-файлу
-LOG_PATH = "bot.log"
+LOG_PATH = "/data/bot.log"
 
 # Интервал проверки базы (в секундах)
 CHECK_INTERVAL = 60
