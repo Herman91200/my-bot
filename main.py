@@ -3,7 +3,8 @@
 
 import asyncio
 import logging
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
+MSK = timezone(timedelta(hours=3))
 
 from aiogram import Bot, Dispatcher, F
 from aiogram.client.default import DefaultBotProperties
@@ -151,7 +152,7 @@ async def scheduler_loop():
     logger.info("Планировщик запущен.")
     while True:
         try:
-            now = datetime.now()
+            now = datetime.now(MSK).replace(tzinfo=None)
             due_posts = await db.get_due_posts(now)
 
             for post_id, text, image_url in due_posts:
